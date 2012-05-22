@@ -1,0 +1,4 @@
+A less error occured trying to build your bundle. Please paste the error below in an issue for us at http://github.com/twitter/bootsrap! thanks!
+
+
+{"type":"Parse","message":"Syntax Error on line 4151","index":97343,"filename":"bootstrap.css","line":4151,"column":46,"extract":["  }","}undefinedundefinedundefinedundefinedundefined",null]}
