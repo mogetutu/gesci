@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -173,6 +173,8 @@
     <script src="<?=base_url('media/js/modernizr-2.0.6.min.js');?>"></script>
     <script src="<?=base_url('media/js/bootstrap.min.js');?>"></script>
     <script src="<?=base_url('media/js/widgets.js');?>"></script>
-
+    <link href="<?=site_url('media/css/datepicker.css');?>" rel="stylesheet">
+    <script src="<?=site_url('media/js/bootstrap-datepicker.js');?>"></script>
+    <script>$('#dp3').datepicker();</script>
   </body>
 </html>

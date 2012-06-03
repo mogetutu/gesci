@@ -21,7 +21,6 @@
 					<option value="Botswana"
 					<?php if ((isset($country_of_residence)) && $country_of_residence == 'Botswana') {echo 'selected';}?>>Botswana</option>
 					<option value="Ethiopia"<?php if ((isset($country_of_residence)) && $country_of_residence == 'Ethiopia') {echo 'selected';}?>>Ethiopia</option>
-					<option value="Lesotho" <?php if ((isset($country_of_residence)) && $country_of_residence == 'Lesotho') {echo 'selected';}?>>Lesotho</option>
 					<option value="Malawi" <?php if ((isset($country_of_residence)) && $country_of_residence == 'Malawi') {echo 'selected';}?>>Malawi</option>
 					<option value="Mozambique" <?php if ((isset($country_of_residence)) && $country_of_residence == 'Mozambique') {echo 'selected';}?>>Mozambique</option>
 					<option value="Namibia" <?php if ((isset($country_of_residence)) && $country_of_residence == 'Namibia') {echo 'selected';}?>>Namibia</option>
@@ -43,11 +42,13 @@
               </label>
 			</div>
 		</div>
-
 		<div class="control-group">
 			<label class="control-label">Date of Birth</label>
 			<div class="controls">
-				<input type="date" class="input-xlarge" name="date_of_birth" value="" placeholder="1" required>
+				<div class="input-append date" id="dp3" data-date="1970-01-01" data-date-format="yyyy-mm-dd">
+				  <input class="span9" name="date_of_birth" size="16" type="text" value="<?=isset($date_of_birth)?$date_of_birth:'1970-01-01'?>">
+				  <span class="add-on"><i class="icon-th"></i></span>
+				</div>
 			</div>
 		</div>
 
@@ -91,17 +92,3 @@
 		</div>
 	</fieldset>
 </form>
-<script>
-$(function() {
-    // Check if the browser supports the date input type
-    if (!Modernizr.inputtypes.date){
-        // Add the jQuery UI DatePicker to all
-        // input tags that have their type attributes
-        // set to 'date'
-        $('input[type=date]').datepicker({
-            // specify the same format as the spec
-            dateFormat: 'yy-mm-dd'
-        });
-    }
-});
-</script>

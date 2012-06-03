@@ -32,7 +32,7 @@
 		<div class="control-group">
 			<label class="control-label" for="input01">Year of Graduation</label>
 			<div class="controls">
-				<input type="number" class="input-xlarge" id="input01" maxlength="4" min="1950" max="2012" name="graduation" value="<?php if(isset($graduation)) echo $graduation;?>" required>
+				<input type="text" class="input-xlarge" id="input01" maxlength="4" min="1950" max="2012" name="graduation" value="<?php if(isset($graduation)) echo $graduation;?>" required>
 			</div>
 		</div>
 		<div class="control-group">

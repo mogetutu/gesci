@@ -93,9 +93,7 @@
 
 		<div class="control-group">
 			<label class="control-label">List any computer courses you have taken:</label>
-			<textarea name="computer_courses" placeholder="" required>
-				<?=isset($computer_courses)?$computer_courses:'';?>
-			</textarea>
+			<textarea name="computer_courses" rows="8" class="input-xlarge" placeholder="" required><?=isset($computer_courses)?$computer_courses:'';?></textarea>
 		</div><!-- / computer courses -->
 
 		<div class="control-group">
@@ -165,7 +163,7 @@
 					<?php if((isset($skype)) && ($skype == 'skype')) echo 'checked'; ?>>Skype
 			</label><!-- / hotmail -->
 			<div class="controls">
-				<input type="text" name="other_apps" value="" placeholder="Other">
+				<input type="text" name="other_apps" value="<?=isset($other_apps)?$other_apps:''?>" placeholder="Other">
 			</div><!-- / other-->
 
 
