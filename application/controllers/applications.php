@@ -156,6 +156,7 @@ class Applications extends MY_Controller
 			$username = $this->session->userdata('username');
 			$personal->country_of_residence ="";
 			$personal->gender ="";
+			$personal->date_of_birth ="";
 			$personal->nationality ="";
 			$personal->addresss ="";
 			$personal->alternate_email ="";
@@ -171,7 +172,7 @@ class Applications extends MY_Controller
 			$work->other_sponsor ="";
 			$work->sector ="";
 			$work->role ="";
-			$work->other_role ="";
+			$work->other_role ="None";
 			$work->years ="";
 			$work->supervised ="";
 			$work->experience = "";
@@ -193,6 +194,21 @@ class Applications extends MY_Controller
 			$skill->language_level = "";
 			$skill->language_other = "";
 			$skill->language_other_level = "";
+			$skill->computer_courses = "None";
+			$skill->ms_word = "<del>MS Word</del>";
+			$skill->ms_excel = "<del>MS Excel</del>";
+			$skill->ms_project = "<del>MS Project</del>";
+			$skill->lotus_notes = "<del>Lotus Notes</del>";
+			$skill->facebook = "<del>FaceBook</del>";
+			$skill->myspace = "<del>MySpace</del>";
+			$skill->youtube = "<del>YouTube</del>";
+			$skill->photoshop = "<del>PhotoShop</del>";
+			$skill->google_docs = "<del>Google Docs</del>";
+			$skill->google_calendar = "<del>Google Calendar</del>";
+			$skill->gmail = "<del>GMail</del>";
+			$skill->hotmail = "<del>Hotmail</del>";
+			$skill->skype = "<del>Skype</del>";
+			$skill->other_apps = "None";
 			$statement->benefits = "";
 			$statement->uses = "";
 			$personal = $this->personal->get_by('user_id',$this->user);
@@ -210,55 +226,61 @@ class Applications extends MY_Controller
 				$this->email->cc($supervisor->email);
 
 				$this->email->subject('ALICT Application Form Submission');
-				$this->email->message('Hi '.$username. ',<br>Your Form has been successfully submitted.
+				$this->email->message("Hi {$username}, <br>Your Form has been successfully submitted.
 					<br>
 					<h4>Personal Information</h4><hr>
-					<p>Country of Residence:'.$personal->country_of_residence.'</p>
-					<p>Gender:'.$personal->gender.'</p>
-					<p>Nationality:'.$personal->nationality.'</p>
-					<p>Address:'.$personal->addresss.'</p>
-					<p>Alternate Email:'.$personal->alternate_email.'</p>
-					<p>Phone:'.$personal->phone.'</p>
-					<p>Mobile Phone:'.$personal->mobilephone.'</p>
+					<p>Names: {$username}</p>
+					<p>Date of Birth: {$personal->date_of_birth}</p>
+					<p>Country of Residence:{$personal->country_of_residence}</p>
+					<p>Gender: {$personal->gender}</p>
+					<p>Nationality:{$personal->nationality}</p>
+					<p>Address:{$personal->address}</p>
+					<p>Email:{$email}</p>
+					<p>Alternate Email:{$personal->alternate_email}</p>
+					<p>Phone:{$personal->phone}</p>
+					<p>Mobile Phone:{$personal->mobilephone}</p>
 					<h4>Educational Information</h4><hr>
-					<p>Highest Qualification:'.$education->qualification.'</p>
-					<p>Degree Name:'.$education->degree.'</p>
-					<p>Year of Graduation:'.$education->graduation.'</p>
-					<p>College/University/Institution:'.$education->college.'</p>
-					<p>Country:'.$education->country.'</p>
-					<p>Notes:'.$education->notes.'</p>
+					<p>Highest Qualification:{$education->qualification}</p>
+					<p>Degree Name:{$education->degree}</p>
+					<p>Year of Graduation:{$education->graduation}</p>
+					<p>College/University/Institution:{$education->college}</p>
+					<p>Country:{$education->country}</p>
+					<p>Notes:{$education->notes}</p>
 					<h4>Current Position</h4><hr>
-					<p>Sponsoring Organisation:'.$work->sponsor.'</p>
-					<p>Sponsoring Organisation:'.$work->other_sponsor.'</p>
-					<p>Sector/Department:'.$work->sector.'</p>
-					<p>Role:'.$work->role.'</p>
-					<p>Role:'.$work->other_role.'</p>
-					<p>Years in Ministry/Organisation:'.$work->years.'</p>
-					<p>Individuals Directly supervised by you:'.$work->supervised.'</p>
-					<p>Years of Professional Experience:'.$work->experience.'</p>
+					<p>Sponsoring Organisation:{$work->sponsor}</p>
+					<p>Other Sponsoring Organisation:{$work->other_sponsor}</p>
+					<p>Sector/Department:{$work->sector}</p>
+					<p>Role:{$work->role}</p>
+					<p>Other Role:{$work->other_role}</p>
+					<p>Years in Ministry/Organisation:{$work->years}</p>
+					<p>Individuals Directly supervised by you:{$work->supervised}</p>
+					<p>Years of Professional Experience:{$work->experience}</p>
 					<h4>Supervisors information</h4><hr>
-					<p>First Name:'.$supervisor->firstname.'</p>
-					<p>Last Name:'.$supervisor->lastname.'</p>
-					<p>Title:'.$supervisor->title.'</p>
-					<p>Work Phone Number:'.$w_phone->role.'</p>
-					<p>Direct Phone Number:'.$h_phone->role.'</p>
-					<p>Email:'.$supervisor->email.'</p>
-					<p>Alternate Email:'.$supervisor->a_email.'</p>
+					<p>First Name:{$supervisor->firstname}</p>
+					<p>Last Name:{$supervisor->lastname}</p>
+					<p>Title:{$supervisor->title}</p>
+					<p>Work Phone Number:{$supervisor->w_phone}</p>
+					<p>Direct Phone Number:{$supervisor->h_phone}</p>
+					<p>Email:{$supervisor->email}</p>
+					<p>Alternate Email:{$supervisor->a_email}</p>
 					<h4>Skills information</h4><hr>
-					<p>I have computer equipment available to use at work:'.$skill->w_computer.'</p>
-					<p>I have computer equipment available to use at home:'.$skill->h_computer.'</p>
-					<p>I am willing to use an internet cafe when I have no connectivity at home or in work:'.$skill->internet_cafe.'</p>
-					<p>I have a reliable internet connection at work:'.$skill->internet_work.'</p>
-					<p>I have a reliable internet connection at home:'.$skill->internet_home.'</p>
-					<p>I have a: wireless or broadband connection at work:'.$skill->broadband_work.'</p>
-					<p>I have a: wireless or broadband connection at home:'.$skill->broadband_home.'</p>
-					<p>Language Skills:'.$skill->language.'-'.$skill->language_level.'</p>
-					<p>Language Skills:'.$skill->language_other.'-'.$skill->language_other_level.'</p>
+					<p>I have computer equipment available to use at work:{$skill->w_computer}</p>
+					<p>I have computer equipment available to use at home:{$skill->h_computer}</p>
+					<p>I am willing to use an internet cafe when I have no connectivity at home or in work:{$skill->internet_cafe}</p>
+					<p>I have a reliable internet connection at work:{$skill->internet_work}</p>
+					<p>I have a reliable internet connection at home:{$skill->internet_home}</p>
+					<p>I have a: wireless or broadband connection at work:{$skill->broadband_work}</p>
+					<p>I have a: wireless or broadband connection at home:{$skill->broadband_home}</p>
+					<p>Language Skills:{$skill->language}-{$skill->language_level}</p>
+					<p>Language Skills:{$skill->language_other}-{$skill->language_other_level}</p>
+					<p>Computer Courses {$skill->computer_courses}</p>
+					<p>Applications worked with: {$skill->ms_word},{$skill->ms_excel},{$skill->ms_project},{$skill->lotus_notes}, {$skill->facebook},
+					{$skill->myspace},{$skill->youtube},{$skill->photoshop},{$skill->google_docs},{$skill->google_calendar},{$skill->gmail},
+					{$skill->hotmail},{$skill->skype}</p>
+					<p>Other Apps: {$skill->other_apps}</p>
 					<h4>Statements</h4><hr>
-					<p>What benefits do you expect to gain from participating in the ALICT Course?:'.$statement->benefits.'</p>
-					<p>How will you use what you have learned in your organisation?:'.$statement->uses.'</p>
-
-					');
+					<p>What benefits do you expect to gain from participating in the ALICT Course?:{$statement->benefits}</p>
+					<p>How will you use what you have learned in your organisation?:{$statement->uses}</p>");
 
 				$this->email->send();
 
