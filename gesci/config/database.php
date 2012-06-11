@@ -48,30 +48,14 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['live']['hostname'] = 'sql5.g8systems.com';
-$db['live']['username'] = 'gesciho_dba';
-$db['live']['password'] = 'f59tL8a7xR';
-$db['live']['database'] = 'gesciho_db';
-$db['live']['dbdriver'] = 'mysql';
-$db['live']['dbprefix'] = '';
-$db['live']['pconnect'] = TRUE;
-$db['live']['db_debug'] = FALSE;
-$db['live']['cache_on'] = FALSE;
-$db['live']['cachedir'] = '';
-$db['live']['char_set'] = 'utf8';
-$db['live']['dbcollat'] = 'utf8_general_ci';
-$db['live']['swap_pre'] = '';
-$db['live']['autoinit'] = TRUE;
-$db['live']['stricton'] = FALSE;
-
-$db['default']['hostname'] = '127.0.0.1';
-$db['default']['username'] = 'root';
+$db['default']['hostname'] = '';
+$db['default']['username'] = '';
 $db['default']['password'] = '';
-$db['default']['database'] = 'gesci';
+$db['default']['database'] = '';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE;
+$db['default']['db_debug'] = FALSE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
 $db['default']['char_set'] = 'utf8';

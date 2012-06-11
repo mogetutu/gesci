@@ -71,12 +71,12 @@
 	/**
 	 * Email Activation for registration
 	 **/
-	$config['email_activation']    = true;
+	$config['email_activation']    = TRUE;
 
 	/**
 	 * Allow users to be remembered and enable auto-login
 	 **/
-	$config['remember_users']      = true;
+	$config['remember_users']      = TRUE;
 
 	/**
 	 * How long to remember the user (seconds)
