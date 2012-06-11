@@ -1,4 +1,4 @@
-gesci-application-form-automation
+form-automation
 =====================================
 
 It provides a full CRUD base to make developing database interactions easier and quicker. It also includes a bunch of other cool stuff, including before and after create callbacks, validation and a some table name guessing.
@@ -6,10 +6,6 @@ It provides a full CRUD base to make developing database interactions easier and
 Synopsis
 --------
 User creates an account submits form and await updates from organisation. Application date ends in August
-
-Database
---------
-Database name: gesci
 
 Unit Tests
 ----------
