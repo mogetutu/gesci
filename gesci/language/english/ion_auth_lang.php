@@ -23,11 +23,11 @@ $lang['account_creation_duplicate_username'] = 'Username Already Used or Invalid
 // Password
 $lang['password_change_successful'] 	 	 = 'Password Successfully Changed';
 $lang['password_change_unsuccessful'] 	  	 = 'Unable to Change Password';
-$lang['forgot_password_successful'] 	 	 = 'Password Reset Email Sent';
+$lang['forgot_password_successful'] 	 	 = 'Thanks. Your new password has been sent by email';
 $lang['forgot_password_unsuccessful'] 	 	 = 'Unable to Reset Password';
 
 // Activation
-$lang['activate_successful'] 		  	     = 'Account Activated';
+$lang['activate_successful'] 		  	     = 'Account Activated – please login using the email account and password that you have selected';
 $lang['activate_unsuccessful'] 		 	     = 'Unable to Activate Account';
 $lang['deactivate_successful'] 		  	     = 'Account De-Activated';
 $lang['deactivate_unsuccessful'] 	  	     = 'Unable to De-Activate Account';
@@ -36,7 +36,7 @@ $lang['activation_email_unsuccessful']   	 = 'Unable to Send Activation Email';
 
 // Login / Logout
 $lang['login_successful'] 		  	         = 'Logged In Successfully';
-$lang['login_unsuccessful'] 		  	     = 'Incorrect Login';
+$lang['login_unsuccessful'] 		  	     = 'Incorrect Login – Please try again and click on forgotten password if you want to receive a new access password.';
 $lang['login_unsuccessful_not_active'] 		 = 'Account is inactive';
 $lang['logout_successful'] 		 	         = 'Logged Out Successfully';
 

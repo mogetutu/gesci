@@ -7,7 +7,7 @@ class Applications extends MY_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->ion_auth->logged_in_check();
+		// $this->ion_auth->logged_in_check();
 		$this->user = $this->session->userdata('user_id');
 	}
 	/**
@@ -28,6 +28,8 @@ class Applications extends MY_Controller
 		{
 			return true;
 		}
+
+		var_dump($this->session->userdata('user_id'));
 
 	}
 	/**
@@ -226,61 +228,66 @@ class Applications extends MY_Controller
 				$this->email->cc($supervisor->email);
 
 				$this->email->subject('ALICT Application Form Submission');
-				$this->email->message("Hi {$username}, <br>Your Form has been successfully submitted.
-					<br>
-					<h4>Personal Information</h4><hr>
-					<p>Names: {$username}</p>
-					<p>Date of Birth: {$personal->date_of_birth}</p>
-					<p>Country of Residence:{$personal->country_of_residence}</p>
-					<p>Gender: {$personal->gender}</p>
-					<p>Nationality:{$personal->nationality}</p>
-					<p>Address:{$personal->address}</p>
-					<p>Email:{$email}</p>
-					<p>Alternate Email:{$personal->alternate_email}</p>
-					<p>Phone:{$personal->phone}</p>
-					<p>Mobile Phone:{$personal->mobilephone}</p>
-					<h4>Educational Information</h4><hr>
-					<p>Highest Qualification:{$education->qualification}</p>
-					<p>Degree Name:{$education->degree}</p>
-					<p>Year of Graduation:{$education->graduation}</p>
-					<p>College/University/Institution:{$education->college}</p>
-					<p>Country:{$education->country}</p>
-					<p>Notes:{$education->notes}</p>
-					<h4>Current Position</h4><hr>
-					<p>Sponsoring Organisation:{$work->sponsor}</p>
-					<p>Other Sponsoring Organisation:{$work->other_sponsor}</p>
-					<p>Sector/Department:{$work->sector}</p>
-					<p>Role:{$work->role}</p>
-					<p>Other Role:{$work->other_role}</p>
-					<p>Years in Ministry/Organisation:{$work->years}</p>
-					<p>Individuals Directly supervised by you:{$work->supervised}</p>
-					<p>Years of Professional Experience:{$work->experience}</p>
-					<h4>Supervisors information</h4><hr>
-					<p>First Name:{$supervisor->firstname}</p>
-					<p>Last Name:{$supervisor->lastname}</p>
-					<p>Title:{$supervisor->title}</p>
-					<p>Work Phone Number:{$supervisor->w_phone}</p>
-					<p>Direct Phone Number:{$supervisor->h_phone}</p>
-					<p>Email:{$supervisor->email}</p>
-					<p>Alternate Email:{$supervisor->a_email}</p>
-					<h4>Skills information</h4><hr>
-					<p>I have computer equipment available to use at work:{$skill->w_computer}</p>
-					<p>I have computer equipment available to use at home:{$skill->h_computer}</p>
-					<p>I am willing to use an internet cafe when I have no connectivity at home or in work:{$skill->internet_cafe}</p>
-					<p>I have a reliable internet connection at work:{$skill->internet_work}</p>
-					<p>I have a reliable internet connection at home:{$skill->internet_home}</p>
-					<p>I have a: wireless or broadband connection at work:{$skill->broadband_work}</p>
-					<p>I have a: wireless or broadband connection at home:{$skill->broadband_home}</p>
-					<p>Language Skills:{$skill->language}-{$skill->language_level}</p>
-					<p>Language Skills:{$skill->language_other}-{$skill->language_other_level}</p>
-					<p>Computer Courses {$skill->computer_courses}</p>
-					<p>Applications worked with: {$skill->ms_word},{$skill->ms_excel},{$skill->ms_project},{$skill->lotus_notes}, {$skill->facebook},
+				$this->email->message("Hi {$username}, Your Form has been successfully submitted.
+
+					Personal Information
+					Names: {$username}
+					Date of Birth: {$personal->date_of_birth}
+					Country of Residence:{$personal->country_of_residence}
+					Gender: {$personal->gender}
+					Nationality:{$personal->nationality}
+					Address:{$personal->address}
+					Email:{$email}
+					Alternate Email:{$personal->alternate_email}
+					Phone:{$personal->phone}
+					Mobile Phone:{$personal->mobilephone}
+
+					Educational Information</h4><hr>
+					Highest Qualification:{$education->qualification}
+					Degree Name:{$education->degree}
+					Year of Graduation:{$education->graduation}
+					College/University/Institution:{$education->college}
+					Country:{$education->country}
+					Notes:{$education->notes}
+					
+					Current Position
+					Sponsoring Organisation:{$work->sponsor}
+					Other Sponsoring Organisation:{$work->other_sponsor}
+					Sector/Department:{$work->sector}
+					Role:{$work->role}
+					Other Role:{$work->other_role}
+					Years in Ministry/Organisation:{$work->years}
+					Individuals Directly supervised by you:{$work->supervised}
+					Years of Professional Experience:{$work->experience}
+
+					Supervisors information
+					First Name:{$supervisor->firstname}
+					Last Name:{$supervisor->lastname}
+					Title:{$supervisor->title}
+					Work Phone Number:{$supervisor->w_phone}
+					Direct Phone Number:{$supervisor->h_phone}
+					Email:{$supervisor->email}
+					Alternate Email:{$supervisor->a_email}
+
+					Skills information
+					I have computer equipment available to use at work:{$skill->w_computer}
+					I have computer equipment available to use at home:{$skill->h_computer}
+					I am willing to use an internet cafe when I have no connectivity at home or in work:{$skill->internet_cafe}
+					I have a reliable internet connection at work:{$skill->internet_work}
+					I have a reliable internet connection at home:{$skill->internet_home}
+					I have a: wireless or broadband connection at work:{$skill->broadband_work}
+					I have a: wireless or broadband connection at home:{$skill->broadband_home}
+					Language Skills:{$skill->language}-{$skill->language_level}
+					Language Skills:{$skill->language_other}-{$skill->language_other_level}
+					Computer Courses {$skill->computer_courses}
+					Applications worked with: {$skill->ms_word},{$skill->ms_excel},{$skill->ms_project},{$skill->lotus_notes}, {$skill->facebook},
 					{$skill->myspace},{$skill->youtube},{$skill->photoshop},{$skill->google_docs},{$skill->google_calendar},{$skill->gmail},
-					{$skill->hotmail},{$skill->skype}</p>
-					<p>Other Apps: {$skill->other_apps}</p>
-					<h4>Statements</h4><hr>
-					<p>What benefits do you expect to gain from participating in the ALICT Course?:{$statement->benefits}</p>
-					<p>How will you use what you have learned in your organisation?:{$statement->uses}</p>");
+					{$skill->hotmail},{$skill->skype}
+					Other Apps: {$skill->other_apps}
+					
+					Statements:
+					What benefits do you expect to gain from participating in the ALICT Course?:{$statement->benefits}
+					How will you use what you have learned in your organisation?:{$statement->uses}");
 
 				$this->email->send();
 
